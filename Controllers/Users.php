@@ -72,5 +72,6 @@
 			$data["titulo"] = "usuarios";
 			$this->index();
 		}	
+
 	}
 ?>

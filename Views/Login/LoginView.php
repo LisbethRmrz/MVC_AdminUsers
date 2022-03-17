@@ -1,20 +1,3 @@
-<?php
-
-/* *if($_POST){
-    if(($_POST['usuario'] == "lisbeth") && ($_POST['contraseña']=="12345")){
-        echo "Logueado";
-
-    }
-    else{
-        echo "<script> alert('Usuario o contraseña incorrectos'); </script>";
-    *} 
-} */
-/**foreach($data["usuarios"] as $dato){
-$valor = $dato['id_usuario'];
-}
-echo $valor;*/
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -38,8 +21,8 @@ Usuario:
 Contraseña
 <input class="form-control" type="text" name="contraseña_usuario" id="">
 <br>
-<button class="btn" type="submit" style="background-color: #EA899A">Ingresar</button>
-
+<button class="btn btn-success" type="submit" >Ingresar</button>
+<a href="index.php?c=Login&a=newCliente" class="btn" style="background-color: #EA899A">Registrarse</a>
 </form>
 </div>   
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>

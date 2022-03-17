@@ -72,6 +72,12 @@ class LoginModel{
 			//print_r($this->usuariosCorreo['correo_usuario']);
 		}
 
+		public function insertUsers($nombre, $apellido, $cargo, $correo, $contraseña, $direccion, $telefono){
+			
+			$resultado = $this->db->query("INSERT INTO usuarios (nombre_usuario, apellido_usuario, id_cargoUsuario, correo_usuario, contraseña_usuario, direccion_usuario, telefono_usuario) VALUES ('$nombre', '$apellido', '$cargo', '$correo', '$contraseña', '$direccion', '$telefono')");
+			
+		}
+
 }
 
 /*$instance = new LoginModel();

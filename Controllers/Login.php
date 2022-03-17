@@ -32,8 +32,11 @@ class LoginController{
 
     public function ingresar(){
 
-        $correo = $_POST['correo_usuario'];
-        $contraseña = $_POST['contraseña_usuario'];
+        //$correo = $_POST['correo_usuario'];
+        $Msgerror = "Campo correo vacio";
+        $correo=(isset($_POST['correo_usuario'])) ? $_POST['correo_usuario'] : $Msgerror;
+        $contraseña=(isset($_POST['contraseña_usuario'])) ? $_POST['contraseña_usuario'] : $Msgerror;
+        //$contraseña = $_POST['contraseña_usuario'];
 
         $usuario = new LoginModel();
         $data["usuario"] = $usuario->getUsuarios();
@@ -52,35 +55,54 @@ class LoginController{
             $cargo_usuario = $valueCargo;
         }
 
-        if(!empty($correo_usuario == $correo) && ($contraseña_usuario == $contraseña) && ($cargo_usuario == 1)){
+        if(!empty($correo == $correo_usuario) && ($contraseña_usuario == $contraseña) && ($cargo_usuario == 1)){
             session_start();
-            $_SESSION["rol"]=1;
+            $session1 = $_SESSION["rol"]=1;
             $this->menuBienvenidaG($cargo_usuario);
         }
 
         else if(!empty($correo_usuario == $correo) && ($contraseña_usuario == $contraseña) && ($cargo_usuario == 2)){
             //echo "Usted es un Empleado";
             session_start();
-            $_SESSION["rol"]=2;
+            $session2 = $_SESSION["rol"]=2;
             $this->menuBienvenidaG($cargo_usuario);
         }
 
         else if(!empty($correo_usuario == $correo) && ($contraseña_usuario == $contraseña) && ($cargo_usuario == 3)){
-            echo "Usted es un Cliente";
-            $this->menuBienvenida($cargo_usuario);
+            $session3 = $_SESSION["rol"]=3;
+            $this->menuBienvenidaG($cargo_usuario);
         }
 
         else{
         echo "error, vamos mal";
         //echo $contraseña_usuario;
-        }   
+        }  
 
     }
 
     public function logout(){
-        //session_destroy();
+
         require_once "Views/Login/LoginView.php";
     }
+
+    public function saveCliente(){
+        $nombre = (isset($_POST['nombre_usuario'])?$_POST['nombre_usuario']:"default");
+        $apellido = $_POST['apellido_usuario'];
+        $cargo=  3;
+        $correo = $_POST['correo_usuario'];
+        $contraseña = $_POST['contraseña_usuario'];
+        $direccion = $_POST['direccion_usuario'];
+        $telefono = $_POST['telefono_usuario'];
+        $usuariosC = new LoginModel();
+        $usuariosC->insertUsers($nombre, $apellido, $cargo, $correo, $contraseña, $direccion, $telefono);
+        $data["titulo"] = "Registrarse";
+        $this->index();
+    }
+
+    public function newCliente(){
+        require_once "Views/Login/RegisterCliente.php";
+    }
+
 
 }
 
