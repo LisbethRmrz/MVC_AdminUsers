@@ -16,10 +16,10 @@
 <form action="<?php echo 'index.php?c=Login&a=ingresar'; ?>" method="post">
 
 Usuario:
-<input class="form-control" type="text" name="correo_usuario" id="">
+<input class="form-control" type="text" name="correo_usuario" id="" required>
 
 Contraseña
-<input class="form-control" type="text" name="contraseña_usuario" id="">
+<input class="form-control" type="text" name="contraseña_usuario" id="" required>
 <br>
 <button class="btn btn-success" type="submit" >Ingresar</button>
 <a href="index.php?c=Login&a=newCliente" class="btn" style="background-color: #EA899A">Registrarse</a>

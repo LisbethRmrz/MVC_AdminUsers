@@ -20,7 +20,7 @@
 						<tr class="table table-danger" style="background-color: #EA899A">
 							<th>Nombre</th>
 							<th>Apellido</th>
-							<th>Cargo</th>
+							<th>Rol</th>
 							<th>Correo</th>
 							<th>Contraseña</th>
 							<th>Direccion</th>
@@ -50,7 +50,7 @@
 				</table>
 			</div>
 			<hr>
-			<a href="index.php?c=Header&a=index">Regresar al Login</a>
+			<a href="index.php">Regresar al Login</a>
 		</div>
 		
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>

@@ -28,12 +28,12 @@
 				
 				<div class="form-group">
 					<label for="correo_usuario">Correo</label>
-					<input type="text" class="form-control" id="correo_usuario" name="correo_usuario" />
+					<input type="text" class="form-control" id="correo_usuario" name="correo_usuario" required />
 				</div>
 				
 				<div class="form-group">
 					<label for="contraseña_usuario">Contraseña</label>
-					<input type="text" class="form-control" id="contraseña_usuario" name="contraseña_usuario" />
+					<input type="text" class="form-control" id="contraseña_usuario" name="contraseña_usuario" required />
 				</div>
 
                 <div class="form-group">

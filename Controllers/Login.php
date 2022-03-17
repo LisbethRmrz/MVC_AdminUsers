@@ -32,7 +32,6 @@ class LoginController{
 
     public function ingresar(){
 
-        //$correo = $_POST['correo_usuario'];
         $Msgerror = "Campo correo vacio";
         $correo=(isset($_POST['correo_usuario'])) ? $_POST['correo_usuario'] : $Msgerror;
         $contraseña=(isset($_POST['contraseña_usuario'])) ? $_POST['contraseña_usuario'] : $Msgerror;
@@ -74,7 +73,7 @@ class LoginController{
         }
 
         else{
-        echo "error, vamos mal";
+        echo "Error al iniciar sesión";
         //echo $contraseña_usuario;
         }  
 
@@ -86,7 +85,8 @@ class LoginController{
     }
 
     public function saveCliente(){
-        $nombre = (isset($_POST['nombre_usuario'])?$_POST['nombre_usuario']:"default");
+        //$nombre = (isset($_POST['nombre_usuario'])?$_POST['nombre_usuario']:"default");
+        $nombre = $_POST['nombre_usuario'];
         $apellido = $_POST['apellido_usuario'];
         $cargo=  3;
         $correo = $_POST['correo_usuario'];
@@ -95,6 +95,7 @@ class LoginController{
         $telefono = $_POST['telefono_usuario'];
         $usuariosC = new LoginModel();
         $usuariosC->insertUsers($nombre, $apellido, $cargo, $correo, $contraseña, $direccion, $telefono);
+        /* Envío De Email Con Token - pendiente */
         $data["titulo"] = "Registrarse";
         $this->index();
     }
@@ -102,7 +103,6 @@ class LoginController{
     public function newCliente(){
         require_once "Views/Login/RegisterCliente.php";
     }
-
 
 }
 
