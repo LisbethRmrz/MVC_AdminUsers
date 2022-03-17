@@ -23,8 +23,15 @@
 				</div>
 				
 				<div class="form-group">
-					<label for="cargo_usuario">Cargo</label>
-					<input type="text" class="form-control" id="cargo_usuario" name="cargo_usuario" />
+					<label for="id_cargoUsuario">Cargo</label>
+					<select name="id_cargoUsuario" id="id_cargoUsuario">
+						<?php	
+						foreach($datos["usuarios"] as $dato){
+							echo "<option value=".$dato["id_cargo"].">".$dato["nombre_cargo"]."</option>";
+						}
+						?>
+					</select>
+					<!--input type="text" class="form-control" id="id_cargoUsuario" name="id_cargoUsuario" /-->
 				</div>
 				
 				<div class="form-group">
@@ -47,12 +54,14 @@
 					<input type="text" class="form-control" id="telefono_usuario" name="telefono_usuario" />
 				</div>
 				
-				<button id="guardar" name="guardar" type="submit" class="btn btn-primary">Guardar</button>
+				<button id="guardar" name="guardar" type="submit" class="btn mt-3" style="background-color: #EA899A">Guardar</button>
 				
 			</form>
+			<hr>
+			<a href="index.php?c=Users&a=index"> Regresar </a>
 		</div>
-		Regresar
-			<a href="index.php?c=Users&a=index"> Back </a>
+		
+			
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 	</body>
 </html>

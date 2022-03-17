@@ -1,6 +1,6 @@
 <?php
 
-class ConectL {
+/*class ConectL {
 		
 	public static function conection(){
 		
@@ -8,7 +8,7 @@ class ConectL {
 		return $conn;
 		
 	}
-}
+}*/
 
 class LoginModel{
 
@@ -18,7 +18,7 @@ class LoginModel{
 	private $contraseña;
 		
 		public function __construct(){
-			$this->db = ConectL::conection();
+			$this->db = Conect::conection();
 			$this->usuarios = array();
 		}
 

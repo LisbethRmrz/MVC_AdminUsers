@@ -38,7 +38,7 @@ Usuario:
 Contraseña
 <input class="form-control" type="text" name="contraseña_usuario" id="">
 <br>
-<button class="btn btn-success" type="submit">Ingresar</button>
+<button class="btn" type="submit" style="background-color: #EA899A">Ingresar</button>
 
 </form>
 </div>   

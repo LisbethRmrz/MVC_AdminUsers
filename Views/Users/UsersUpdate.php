@@ -28,7 +28,14 @@
 				
 				<div class="form-group">
 					<label for="id_cargoUsuario">Cargo</label>
-					<input type="text" class="form-control" id="id_cargoUsuario" name="id_cargoUsuario" value="<?php echo $data["usuarios"]["id_cargoUsuario"]?>" />
+					<!--input type="text" class="form-control" id="id_cargoUsuario" name="id_cargoUsuario" value="<?php //echo $data["usuarios"]["id_cargoUsuario"]?>" /-->
+					<select name="id_cargoUsuario" id="id_cargoUsuario">
+						<?php	
+						foreach($datos["usuarios"] as $dato){
+							echo "<option value=".$dato["id_cargo"].">".$dato["nombre_cargo"]."</option>";
+						}
+						?>
+					</select>
 				</div>
 				
 				<div class="form-group">
@@ -50,13 +57,13 @@
 					<label for="telefono_usuario">Telefono</label>
 					<input type="text" class="form-control" id="telefono_usuario" name="telefono_usuario" value="<?php echo $data["usuarios"]["telefono_usuario"]?>" />
 				</div>
-				
-				<button id="guardar" name="guardar" type="submit" class="btn btn-primary">Guardar</button>
-				
-			</form>
-                <hr>
-            <button id="regresar" name="regresar"><a href="index.php">Regresar</a></button>
+				<div class="pt-3">
+				<button id="guardar" name="guardar" type="submit" class="btn" style="background-color: #EA899A">Guardar</button>
+				</div>
 
+			</form>
+			<hr>
+			<a href="index.php?c=Users&a=index"> Regresar </a>
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 		</body>
 	</html>		

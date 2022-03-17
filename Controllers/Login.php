@@ -22,8 +22,12 @@ class LoginController{
         $usuarios = new LoginModel();
         $data["titulo"] = "Bienvenida";
         $data["usuarios"] = $usuarios->getUsuarios();
-        require_once "Views/Login/LoginWelcome.php";
-            
+        require_once "Views/Login/LoginWelcome.php";   
+    }
+
+    public function menuBienvenidaG($rol){
+        $usuarios = new LoginModel();
+        require_once "Views/Menu/Header.php";
     }
 
     public function ingresar(){
@@ -48,39 +52,34 @@ class LoginController{
             $cargo_usuario = $valueCargo;
         }
 
-        foreach ($data["usuario"] as $dato){
-            $idUsuario = $dato['id_usuario'];
-            $idCargoUsuario = $dato['id_cargoUsuario'];
-            $correoUsuario = $dato['correo_usuario'];
-            $contraseñaUsuario = $dato['contraseña_usuario'];
-            //echo $correoUsuario;
-            //echo $contraseñaUsuario;
-            
+        if(!empty($correo_usuario == $correo) && ($contraseña_usuario == $contraseña) && ($cargo_usuario == 1)){
+            session_start();
+            $_SESSION["rol"]=1;
+            $this->menuBienvenidaG($cargo_usuario);
         }
 
-        if(($correo_usuario == $correo) && ($contraseña_usuario == $contraseña) && ($cargo_usuario == 1)){
-            //session_start();
-            echo "Usted es un gerente";
-            $this->users();
+        else if(!empty($correo_usuario == $correo) && ($contraseña_usuario == $contraseña) && ($cargo_usuario == 2)){
+            //echo "Usted es un Empleado";
+            session_start();
+            $_SESSION["rol"]=2;
+            $this->menuBienvenidaG($cargo_usuario);
         }
 
-        else if(($correo_usuario == $correo) && ($contraseña_usuario == $contraseña) && ($cargo_usuario == 2)){
-            echo "Usted es un Empleado";
-            $this->users();
-        }
-
-        else if(($correo_usuario == $correo) && ($contraseña_usuario == $contraseña) && ($cargo_usuario == 3)){
+        else if(!empty($correo_usuario == $correo) && ($contraseña_usuario == $contraseña) && ($cargo_usuario == 3)){
             echo "Usted es un Cliente";
-            $this->users();
+            $this->menuBienvenida($cargo_usuario);
         }
 
         else{
         echo "error, vamos mal";
         //echo $contraseña_usuario;
-        }
+        }   
 
-        
+    }
 
+    public function logout(){
+        //session_destroy();
+        require_once "Views/Login/LoginView.php";
     }
 
 }

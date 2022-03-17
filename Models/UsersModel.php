@@ -4,6 +4,7 @@
 		
 		private $db;
 		private $usuarios;
+		private $cargos;
 		
 		public function __construct(){
 			$this->db = Conect::conection();
@@ -12,13 +13,25 @@
 		
 		public function getUsuarios()
 		{
-			$sql = "SELECT * FROM usuarios";
+			//$sql = "SELECT * FROM usuarios";
+			$sql = "SELECT u.id_usuario, u.nombre_usuario, u.apellido_usuario, u.correo_usuario, u.contraseña_usuario, u.direccion_usuario, u.telefono_usuario, c.nombre_cargo from usuarios u inner join cargos c On c.id_cargo = u.id_cargoUsuario";
 			$resultado = $this->db->query($sql);
 			while($row = $resultado->fetch_assoc())
 			{
 				$this->usuarios[] = $row;
 			}
 			return $this->usuarios;
+		}
+
+		public function getCargos()
+		{
+			$sql = "SELECT * FROM cargos";
+			$resultadoC = $this->db->query($sql);
+			while($row = $resultadoC->fetch_assoc())
+			{
+				$this->cargos[] = $row;
+			}
+			return $this->cargos;
 		}
 		
 		public function insertUsers($nombre, $apellido, $cargo, $correo, $contraseña, $direccion, $telefono){

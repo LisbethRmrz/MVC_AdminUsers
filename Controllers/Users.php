@@ -7,18 +7,16 @@
 		}
 		
 		public function index(){
-			
-			
 			$usuarios = new UsersModel();
 			$data["titulo"] = "Usuarios";
 			$data["usuarios"] = $usuarios->getUsuarios();
-			
 			require_once "Views/Users/UsersView.php";	
 		}
 		
 		public function new(){
-			
+			$usuarios = new UsersModel();
 			$data["titulo"] = "Usuarios";
+			$datos["usuarios"] = $usuarios->getCargos();
             require_once "Views/Users/UsersNew.php";
 		}
 		
@@ -26,7 +24,8 @@
 			
 			$nombre = $_POST['nombre_usuario'];
 			$apellido = $_POST['apellido_usuario'];
-            $cargo = $_POST['id_cargoUsuario'];
+            //$cargo = $_POST['id_cargoUsuario'];
+			$cargo=(isset($_POST['id_cargoUsuario'])) ? $_POST['id_cargoUsuario'] : 3;
             $correo = $_POST['correo_usuario'];
             $contraseña = $_POST['contraseña_usuario'];
             $direccion = $_POST['direccion_usuario'];
@@ -41,10 +40,10 @@
 		public function updateUser($id){
 			
 			$usuarios = new UsersModel();
-			
 			$data["id_usuario"] = $id;
 			$data["usuarios"] = $usuarios->getUsers($id);
 			$data["titulo"] = "Usuarios Actualizar";
+			$datos["usuarios"] = $usuarios->getCargos();
 			require_once "Views/Users/UsersUpdate.php";
 		}
 		
@@ -53,7 +52,8 @@
 			$id = $_POST['id_usuario'];
 			$nombre = $_POST['nombre_usuario'];
 			$apellido = $_POST['apellido_usuario'];
-            $cargo = $_POST['id_cargoUsuario'];
+            //$cargo = $_POST['id_cargoUsuario'];
+			$cargo=(isset($_POST['id_cargoUsuario'])) ? $_POST['id_cargoUsuario'] : 3;
             $correo = $_POST['correo_usuario'];
             $contraseña = $_POST['contraseña_usuario'];
             $direccion = $_POST['direccion_usuario'];
