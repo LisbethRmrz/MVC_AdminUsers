@@ -13,7 +13,7 @@ Este mini proyecto consiste en la gestión básica de usuarios utilizando PHP y 
 - Descargar y/o descomprimir el proyecto y colocarlo en la ruta que requiera el servidor local a utilizar
 - Dentro del proyecto se encuentra un archivo llamado admin_users.sql que contiene el script completo de la base de datos utilizada, este archivo se puede importar o ejecutar el script en forma de texto copiando y pegando su contenido.
 - Modificar la cadena de conexión del proyecto siguiendo la ruta: Configurations/DbConection y colocar los valores de su acceso
-- Ejecutar el proyecto, en mi caso accedo de la siguiente manera: "http://localhost:55/MVC_AdminUsers/"
+- Ejecutar el proyecto, en mi caso accedo de la siguiente manera: "http://localhost:55/BrauliaGodoy/MVC_AdminUsers/"
 - La base de datos por defecto tiene un usuario de cada tipo (Gerente, Empleado y Cliente), los datos para acceder a cada uno son: Para gerente, correo = gerente@gmail.com y contraseña es 123456; para empleado, correo = empleado@gmail.com y contraseña es $empleado, finalmente, para cliente correo = cliente@gmail.com y contraseña = @123456.
 
 ## Explicación ​📄​
